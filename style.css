@@ -27,7 +27,7 @@ button {
 .grid {
     position: sticky;
     transform: translate(17%, 32%);
-    width: 600px;
+    width: 570px;
     height: 300px;
     border: 4px solid rgb(226, 43, 113);
     background-color: rgb(12, 12, 12);
