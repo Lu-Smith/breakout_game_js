@@ -9,8 +9,24 @@ body {
     background-color: rgb(46, 45, 45);
 }
 
+button {
+    padding: 10px 25px;
+    font-size: 20px;
+    line-height: 30px;
+    border-radius: 30px;
+    margin: 20px 0;
+}
+
+.game {
+    width: 800px;
+    height: 500px;
+    background-color: rgb(136, 33, 72);
+    margin: 0 auto;
+}
+
 .grid {
     position: sticky;
+    transform: translate(17%, 32%);
     width: 600px;
     height: 300px;
     border: 4px solid rgb(226, 43, 113);
@@ -22,4 +38,19 @@ body {
     width: 100px;
     height: 20px;
     background-color: rgb(217, 188, 245);
+}
+
+footer {
+    color: white;
+    font-size: 18px;
+    line-height: 25px;
+    position: fixed;
+    bottom: 10px;
+    right: 2%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    
 }
