@@ -1,12 +1,9 @@
-
-
+//test
 export function sum(a,b) {
     return a + b;
 }
 
-
-
-
+//logic
 
 const grid = document.querySelector('#grid')
 const blockWidth = 100
