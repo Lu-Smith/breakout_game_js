@@ -7,6 +7,7 @@ export function sum(a,b) {
 
 const grid = document.querySelector('#grid')
 const scoreDisplay = document.querySelector("#score")
+const startGame = document.querySelector('#start')
 const blockWidth = 100
 const blockHeight = 20
 const boardWidth = 570
@@ -93,8 +94,6 @@ function moveUser(e) {
     }
 }
 
-document.addEventListener('keydown', moveUser)
-
 const ball = document.createElement('div')
 ball.classList.add('ball')
 drawBall()
@@ -107,7 +106,7 @@ function moveBall() {
     checkForCollisions() 
 }
 
-timerId = setInterval(moveBall, 30)
+
 
 function changeDirection() {
     if (xDirection === 2 && yDirection === 2) {
@@ -169,3 +168,15 @@ function checkForCollisions() {
     }
 }
 
+
+function startPlayingGame() {
+    ballCurrentPosition = [270,30]
+    xDirection = 2
+    yDirection = 2
+    score = 0
+    scoreDisplay.innerHTML = score
+    document.addEventListener('keydown', moveUser)
+    timerId = setInterval(moveBall, 30)
+}
+
+startGame.addEventListener('click', startPlayingGame)
