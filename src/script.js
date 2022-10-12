@@ -8,7 +8,7 @@ export function sum(a,b) {
 const grid = document.querySelector('#grid')
 const scoreDisplay = document.querySelector("#score")
 const startGame = document.querySelector('#start')
-const blockWidth = 100
+const blockWidth = 80
 const blockHeight = 20
 const boardWidth = 570
 const boardHeight = 300
@@ -32,21 +32,30 @@ class Block {
 }
 
 const blocks = [
-    new Block(10,270),
-    new Block(120,270),
-    new Block(230,270),
-    new Block(340,270),
-    new Block(450,270),
-    new Block(10,240),
-    new Block(120,240),
-    new Block(230,240),
-    new Block(340,240),
-    new Block(450,240),
-    new Block(10,210),
-    new Block(120,210),
-    new Block(230,210),
-    new Block(340,210),
-    new Block(450,210),
+    new Block(15,270),
+    new Block(105,270),
+    new Block(195,270),
+    new Block(285,270),
+    new Block(375,270),
+    new Block(465,270),
+    new Block(15,240),
+    new Block(105,240),
+    new Block(195,240),
+    new Block(285,240),
+    new Block(375,240),
+    new Block(465,240),
+    new Block(15,210),
+    new Block(105,210),
+    new Block(195,210),
+    new Block(285,210),
+    new Block(375,210),
+    new Block(465,210),
+    new Block(15,180),
+    new Block(105,180),
+    new Block(195,180),
+    new Block(285,180),
+    new Block(375,180),
+    new Block(465,180),
 ]
 
 
@@ -149,8 +158,8 @@ function checkForCollisions() {
             }
         }
     }
-    if (ballCurrentPosition[0] >= (boardWidth - ballDiameter - 10) ||
-        ballCurrentPosition[1] >= (boardHeight - ballDiameter - 10) ||
+    if (ballCurrentPosition[0] >= (boardWidth - ballDiameter) ||
+        ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
         ballCurrentPosition[0] <= 0
         ) {
         changeDirection()
