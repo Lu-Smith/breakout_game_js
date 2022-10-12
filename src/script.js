@@ -19,6 +19,7 @@ let ballCurrentPosition = ballStart
 let timerId
 let xDirection = 2
 let yDirection = 2
+let score = 0
 
 class Block {
     constructor(xAxis, yAxis) {
@@ -136,7 +137,11 @@ function checkForCollisions() {
               ballCurrentPosition[1] < blocks[1].topLeft[1])
         ) {
             const allBlocks = Array.from(document.querySelectorAll('.block'))
-            console.log(allBlocks)
+            allBlocks[i].classList.remove('block')
+            blocks.splice(i, 1)
+            changeDirection()
+            score++
+            scoreDisplay.innerHTML = score
         }
     }
     if (ballCurrentPosition[0] >= (boardWidth - ballDiameter - 10) ||
