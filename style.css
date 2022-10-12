@@ -37,7 +37,15 @@ button {
     position: absolute;
     width: 100px;
     height: 20px;
-    background-color: rgb(217, 188, 245);
+    background-color: white;
+}
+
+.user {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: rgb(161, 101, 218);
+    border-radius: 10px;
 }
 
 footer {
