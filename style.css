@@ -7,6 +7,7 @@
 body {
     text-align: center;
     background-color: rgb(46, 45, 45);
+    overflow: hidden;
 }
 
 button {
@@ -25,12 +26,14 @@ button {
 }
 h1 {
     color: white;
-    margin: 30px;
+    margin: 50px;
+    font-size: 80px;
+    line-height: 90px;
 }
 
 .grid {
     position: sticky;
-    transform: translate(17%, 32%);
+    transform: translate(20%, 32%);
     width: 570px;
     height: 300px;
     border: 4px solid rgb(226, 43, 113);
@@ -74,3 +77,27 @@ footer a {
     text-decoration: none;
     
 }
+
+@media only screen and (max-width: 800px) {
+    .game {
+        width: 620px;
+        height: 360px;
+        background-color: rgb(136, 33, 72);
+        margin: 0 auto;
+    }
+    h1 {
+        color: white;
+        margin: 40px;
+        font-size: 70px;
+        line-height: 80px;
+    }
+    
+    .grid {
+        position: sticky;
+        transform: translate(4.3%, 10%);
+        width: 570px;
+        height: 300px;
+        border: 4px solid rgb(226, 43, 113);
+        background-color: rgb(12, 12, 12);
+    }
+  }

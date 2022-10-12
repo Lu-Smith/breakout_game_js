@@ -6,6 +6,7 @@ export function sum(a,b) {
 //logic
 
 const grid = document.querySelector('#grid')
+const scoreDisplay = document.querySelector("#score")
 const blockWidth = 100
 const blockHeight = 20
 const boardWidth = 570
@@ -136,6 +137,8 @@ function checkForCollisions() {
 
     if (ballCurrentPosition[1] <= 0) {
         clearInterval(timerId)
+        scoreDisplay.innerHTML = 'Game Over'
+        document.removeEventListener('keydown', moveUser)
     }
 }
 
