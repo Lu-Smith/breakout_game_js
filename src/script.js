@@ -128,8 +128,14 @@ function changeDirection() {
 
 function checkForCollisions() {
     if (ballCurrentPosition[0] >= (boardWidth - ballDiameter - 10) ||
-        ballCurrentPosition[1] >= (boardHeight - ballDiameter - 10 )) {
+        ballCurrentPosition[1] >= (boardHeight - ballDiameter - 10) ||
+        ballCurrentPosition[0] <= 0
+        ) {
         changeDirection()
+    }
+
+    if (ballCurrentPosition[1] <= 0) {
+        clearInterval(timerId)
     }
 }
 
