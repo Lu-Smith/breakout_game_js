@@ -23,6 +23,10 @@ button {
     background-color: rgb(136, 33, 72);
     margin: 0 auto;
 }
+h1 {
+    color: white;
+    margin: 30px;
+}
 
 .grid {
     position: sticky;
