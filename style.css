@@ -48,9 +48,14 @@ h1 {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-
-.blueblock {
-    background-color: blue;
+.orange {
+    background: rgb(252, 133, 36);
+}
+.yellow {
+    background: rgb(247, 188, 28);
+}
+.lightyellow {
+    background: rgb(212, 248, 129);
 }
 
 .user {

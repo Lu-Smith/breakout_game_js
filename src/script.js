@@ -64,11 +64,23 @@ function addBlocks() {
         const block = document.createElement('div')
         block.style.left = blocks[i].bottomLeft[0] + 'px'
         block.style.bottom = blocks[i].bottomLeft[1] + 'px'
-        block.classList.add('block')
+        if (i < 6) {
+            block.classList.add('block', 'orange')
+        } else if (i >= 6 && i < 12) {
+            block.classList.add('block', 'yellow')
+        } else if (i >= 18) {
+            block.classList.add('block')
+        } else {
+            block.classList.add('block', 'lightyellow')
+        }
+        
         grid.appendChild(block)
     }
 }
+
 addBlocks()
+
+
 
 const user = document.createElement('div')
 user.classList.add('user')
@@ -180,13 +192,16 @@ function checkForCollisions() {
 
 
 function startPlayingGame() {
+
     ballCurrentPosition = [270,30]
+    currentPosition = [230, 10]
     xDirection = 2
     yDirection = 2
     score = 0
     scoreDisplay.innerHTML = score
-    document.addEventListener('keydown', moveUser)
+    drawUser()
     timerId = setInterval(moveBall, 30)
+    document.addEventListener('keydown', moveUser)
    
 }
 
