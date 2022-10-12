@@ -8,6 +8,7 @@ export function sum(a,b) {
 const grid = document.querySelector('#grid')
 const blockWidth = 100
 const blockHeight = 20
+const boardWidth = 570
 const userStart = [230, 10]
 let currentPosition = userStart
 
@@ -68,6 +69,12 @@ function moveUser(e) {
                 drawUser()
             }
             break;
+        case 'ArrowRight':
+                if (currentPosition[0] < boardWidth - blockWidth - 10) {
+                    currentPosition[0] += 10
+                    drawUser()
+                }
+                break;
     }
 }
 
