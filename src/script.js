@@ -63,6 +63,12 @@ function drawUser() {
     user.style.bottom = currentPosition[1] + 'px'
 }
 
+function drawBall() {
+    ball.style.left = ballCurrentPosition[0] + 'px'
+    ball.style.bottom = ballCurrentPosition[1] + 'px'
+    
+}
+
 function moveUser(e) {
     switch(e.key) {
         case 'ArrowLeft':
@@ -84,7 +90,13 @@ document.addEventListener('keydown', moveUser)
 
 const ball = document.createElement('div')
 ball.classList.add('ball')
-ball.style.left = ballCurrentPosition[0] + 'px'
-ball.style.bottom = ballCurrentPosition[1] + 'px'
-
+drawBall()
 grid.appendChild(ball)
+
+function moveBall() {
+    ballCurrentPosition[0] +=2
+    ballCurrentPosition[1] +=2
+    drawBall()
+}
+
+setInterval(moveBall, 30)
