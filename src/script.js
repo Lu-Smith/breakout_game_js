@@ -95,7 +95,7 @@ function moveUser(e) {
             }
             break;
         case 'ArrowRight':
-                if (currentPosition[0] < boardWidth - blockWidth - 10) {
+                if (currentPosition[0] < boardWidth - blockWidth - 30) {
                     currentPosition[0] += 10
                     drawUser()
                 }
@@ -139,10 +139,10 @@ function changeDirection() {
 function checkForCollisions() {
     for (let i = 0; i < blocks.length; i++) {
         if (
-            (ballCurrentPosition[0] > blocks[1].bottomLeft[0] &&
-             ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
+            (ballCurrentPosition[0] > (blocks[i].bottomLeft[0] - ballDiameter) &&
+             ballCurrentPosition[0] < (blocks[i].bottomRight[0] + blockWidth)) &&
              ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] &&
-              ballCurrentPosition[1] < blocks[1].topLeft[1])
+              (ballCurrentPosition[1] + ballDiameter) < blocks[i].topLeft[1])
         ) {
             const allBlocks = Array.from(document.querySelectorAll('.block'))
             allBlocks[i].classList.remove('block')
@@ -158,7 +158,7 @@ function checkForCollisions() {
             }
         }
     }
-    if (ballCurrentPosition[0] >= (boardWidth - ballDiameter) ||
+    if (ballCurrentPosition[0] >= (boardWidth - 10 - ballDiameter) ||
         ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
         ballCurrentPosition[0] <= 0
         ) {
@@ -174,6 +174,7 @@ function checkForCollisions() {
         clearInterval(timerId)
         scoreDisplay.innerHTML = 'Game Over'
         document.removeEventListener('keydown', moveUser)
+        
     }
 }
 
