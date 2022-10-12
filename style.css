@@ -44,7 +44,13 @@ h1 {
     position: absolute;
     width: 80px;
     height: 20px;
-    background-color: white;
+    background: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.blueblock {
+    background-color: blue;
 }
 
 .user {
