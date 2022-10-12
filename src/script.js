@@ -9,10 +9,14 @@ const grid = document.querySelector('#grid')
 const blockWidth = 100
 const blockHeight = 20
 const boardWidth = 570
+const ballDiameter = 20
 const userStart = [230, 10]
 let currentPosition = userStart
 const ballStart = [270,30]
 let ballCurrentPosition = ballStart
+let timerId
+let xDirection = 2
+let yDirection = 2
 
 class Block {
     constructor(xAxis, yAxis) {
@@ -94,9 +98,24 @@ drawBall()
 grid.appendChild(ball)
 
 function moveBall() {
-    ballCurrentPosition[0] +=2
-    ballCurrentPosition[1] +=2
+    ballCurrentPosition[0] +=xDirection
+    ballCurrentPosition[1] +=yDirection
     drawBall()
+    checkForCollisions() 
 }
 
-setInterval(moveBall, 30)
+timerId = setInterval(moveBall, 30)
+
+function changeDirection() {
+    if (xDirection === 2 && yDirection === 2) {
+        xDirection = -2
+        return
+    }
+}
+
+function checkForCollisions() {
+    if (ballCurrentPosition[0] >= (boardWidth - ballDiameter - 10)) {
+        changeDirection()
+    }
+}
+
