@@ -87,16 +87,16 @@ h1 {
     border-top-right-radius: 20px;
 }
 
-.lightyellow {
-    background: rgb(212, 248, 129);
-}
-
 .yellow {
-    background: rgb(247, 188, 28);
+    background: #EEE5BB;
 }
 
-.orange {
-    background: rgb(252, 133, 36);
+.pink{
+    background: #E882A6;
+}
+
+.purple {
+    background: #6F4785;
 }
 
 .rainbow {

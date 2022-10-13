@@ -64,13 +64,13 @@ function addBlocks() {
             block.style.left = blocks[i].bottomLeft[0] + 'px'
             block.style.bottom = blocks[i].bottomLeft[1] + 'px'
             if (i < 6) {
-                block.classList.add('block', 'orange')
+                block.classList.add('block', 'purple')
             } else if (i >= 6 && i < 12) {
-                block.classList.add('block', 'yellow')
+                block.classList.add('block', 'pink')
             } else if (i >= 18) {
                 block.classList.add('block')
             } else {
-                block.classList.add('block', 'lightyellow')
+                block.classList.add('block', 'yellow')
             }
             grid.appendChild(block)
         }
@@ -156,11 +156,11 @@ function checkForCollisions() {
                 score++
                 scoreDisplay.innerHTML = score
                 if (blocks.length === 18) {
-                    frame.classList.add('lightyellow')
-                } else if (blocks.length === 12 ) {
                     frame.classList.add('yellow')
+                } else if (blocks.length === 12 ) {
+                    frame.classList.add('pink')
                 } else if (blocks.length === 6 ){
-                    frame.classList.add('orange')
+                    frame.classList.add('purple')
                 }
 
                 if (blocks.length === 0) {
