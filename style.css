@@ -16,14 +16,13 @@ button {
     line-height: 30px;
     border-radius: 30px;
     font-weight: 600;
-    margin: 20px 0;
+    margin: 20px auto;
     color: white;
     border: none;
     background: linear-gradient(122.3deg,#A165DA 14.1%, rgb(180, 76, 142) 84.8%);
     box-shadow: 1px 3px 1px #E22B71;
     transition: all 200ms ease-in-out;
     overflow: hidden;
-    
 }
 
 button:hover {
@@ -140,13 +139,10 @@ footer a {
     .game {
         width: 620px;
         height: 360px;
-        background-color: rgb(136, 33, 72);
-        margin: 0 auto;
     }
     h1 {
-        color: white;
         margin: 40px;
-        font-size: 70px;
+        font-size: 60px;
         line-height: 80px;
     }
     
