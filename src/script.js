@@ -195,10 +195,14 @@ function checkForCollisions() {
 
 function startPlayingGame() {
     if (reset === true) {
+        startGame.innerHTML = 'Start'
         window.location.reload();
+       
     } else {
     timerId = setInterval(moveBall, 30)
     document.addEventListener('keydown', moveUser)
+    startGame.innerHTML = 'Reset'
+    
     }
     
 }
