@@ -15,7 +15,44 @@ button {
     font-size: 20px;
     line-height: 30px;
     border-radius: 30px;
+    font-weight: 600;
     margin: 20px 0;
+    color: white;
+    border: none;
+    background: linear-gradient(122.3deg,#A165DA 14.1%, rgb(180, 76, 142) 84.8%);
+    box-shadow: 1px 3px 1px #E22B71;
+    transition: all 200ms ease-in-out;
+    overflow: hidden;
+    
+}
+
+button:hover {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+span {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(122.3deg,rgb(237, 237, 183) 14.1%, rgb(244, 166, 215) 84.8%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+    
+}
+@keyframes animate {
+    0%
+    {
+        width: 1px;
+        height: 1px;
+        opacity: 0.8;
+    }
+    100%
+    {
+        width: 200px;
+        height: 200px;
+        opacity: 0.1;
+    }
 }
 
 .game {
