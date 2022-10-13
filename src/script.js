@@ -179,7 +179,7 @@ function checkForCollisions() {
         ) {
         changeDirection()
     }
-    if ((ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) && 
+    if ((ballCurrentPosition[0] > currentPosition[0] - ballDiameter && ballCurrentPosition[0] < currentPosition[0] + blockWidth + ballDiameter) && 
         (ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight)
     ) {
         changeDirection()
