@@ -6,6 +6,7 @@ export function sum(a,b) {
 const grid = document.querySelector('#grid')
 const scoreDisplay = document.querySelector("#score")
 const startGame = document.querySelector('#start')
+const frame = document.querySelector('.game')
 const blockWidth = 80
 const blockHeight = 20
 const boardWidth = 570
@@ -154,18 +155,26 @@ function checkForCollisions() {
                 changeDirection()
                 score++
                 scoreDisplay.innerHTML = score
+                if (blocks.length === 18) {
+                    frame.classList.add('lightyellow')
+                } else if (blocks.length === 12 ) {
+                    frame.classList.add('yellow')
+                } else if (blocks.length === 6 ){
+                    frame.classList.add('orange')
+                }
 
                 if (blocks.length === 0) {
                     scoreDisplay.innerHTML = "You Won"
                     clearInterval(timerId)
                     document.removeEventListener('keydown', moveUser)
                     reset = true
+                    frame.classList.add('rainbow')
                 }
         }   
     }
     
     if (ballCurrentPosition[0] >= (boardWidth - 10 - ballDiameter) ||
-        ballCurrentPosition[1] >= (boardHeight - 10 - ballDiameter) ||
+        ballCurrentPosition[1] >= (boardHeight - 5 - ballDiameter) ||
         ballCurrentPosition[0] <= 0
         ) {
         changeDirection()
