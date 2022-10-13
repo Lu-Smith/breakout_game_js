@@ -1,8 +1,3 @@
-//test
-export function sum(a,b) {
-    return a + b;
-}
-
 const grid = document.querySelector('#grid')
 const scoreDisplay = document.querySelector("#score")
 const startGame = document.querySelector('#start')
