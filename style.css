@@ -105,10 +105,12 @@ h1 {
 
 .user {
     position: absolute;
+    border-bottom: 3px solid white;
     width: 100px;
     height: 20px;
-    background-color: rgb(161, 101, 218);
-    border-radius: 10px;
+    background: linear-gradient(122.3deg,#A165DA 14.1%, rgb(180, 76, 142) 84.8%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .ball {
@@ -116,7 +118,7 @@ h1 {
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background-color: rgb(21, 208, 233);
+    background: linear-gradient(122.3deg,#dcc6f0 14.1%, rgb(180, 76, 142) 94.8%);
 }
 
 footer {
