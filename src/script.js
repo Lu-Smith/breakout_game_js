@@ -3,8 +3,6 @@ export function sum(a,b) {
     return a + b;
 }
 
-//logic
-
 const grid = document.querySelector('#grid')
 const scoreDisplay = document.querySelector("#score")
 const startGame = document.querySelector('#start')
@@ -32,7 +30,7 @@ class Block {
     }
 }
 
-const blocks = [
+let blocks = [
     new Block(15,270),
     new Block(105,270),
     new Block(195,270),
@@ -59,26 +57,23 @@ const blocks = [
     new Block(465,180),
 ]
 
-
 function addBlocks() {
-    for (let i = 0; i < blocks.length; i++) {
-        const block = document.createElement('div')
-        block.style.left = blocks[i].bottomLeft[0] + 'px'
-        block.style.bottom = blocks[i].bottomLeft[1] + 'px'
-        if (i < 6) {
-            block.classList.add('block', 'orange')
-        } else if (i >= 6 && i < 12) {
-            block.classList.add('block', 'yellow')
-        } else if (i >= 18) {
-            block.classList.add('block')
-        } else {
-            block.classList.add('block', 'lightyellow')
+        for (let i = 0; i < blocks.length; i++) {
+            const block = document.createElement('div')
+            block.style.left = blocks[i].bottomLeft[0] + 'px'
+            block.style.bottom = blocks[i].bottomLeft[1] + 'px'
+            if (i < 6) {
+                block.classList.add('block', 'orange')
+            } else if (i >= 6 && i < 12) {
+                block.classList.add('block', 'yellow')
+            } else if (i >= 18) {
+                block.classList.add('block')
+            } else {
+                block.classList.add('block', 'lightyellow')
+            }
+            grid.appendChild(block)
         }
-        
-        grid.appendChild(block)
-    }
 }
-
 addBlocks()
 
 const user = document.createElement('div')
@@ -126,8 +121,6 @@ function moveBall() {
     checkForCollisions() 
 }
 
-
-
 function changeDirection() {
     if (xDirection === 2 && yDirection === 2) {
         yDirection = -2
@@ -147,10 +140,9 @@ function changeDirection() {
     }
 }
 
-function checkForCollisions() {
-    if (reset === true) {        
-        for (let i = 0; i < blocks.length; i++) {
-            if (
+function checkForCollisions() {      
+    for (let i = 0; i < blocks.length; i++) {
+        if (
                 (ballCurrentPosition[0] > (blocks[i].bottomLeft[0] - ballDiameter) &&
                  ballCurrentPosition[0] < (blocks[i].bottomRight[0] + blockWidth)) &&
                  ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] &&
@@ -162,18 +154,18 @@ function checkForCollisions() {
                 changeDirection()
                 score++
                 scoreDisplay.innerHTML = score
-    
+
                 if (blocks.length === 0) {
                     scoreDisplay.innerHTML = "You Won"
                     clearInterval(timerId)
                     document.removeEventListener('keydown', moveUser)
+                    reset = true
                 }
-            }
-        }
+        }   
     }
     
     if (ballCurrentPosition[0] >= (boardWidth - 10 - ballDiameter) ||
-        ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
+        ballCurrentPosition[1] >= (boardHeight - 10 - ballDiameter) ||
         ballCurrentPosition[0] <= 0
         ) {
         changeDirection()
@@ -188,22 +180,18 @@ function checkForCollisions() {
         clearInterval(timerId)
         scoreDisplay.innerHTML = 'Game Over'
         document.removeEventListener('keydown', moveUser)
-        
+        reset = true  
     }
 }
 
-
 function startPlayingGame() {
+    if (reset === true) {
+        window.location.reload();
+    } else {
     timerId = setInterval(moveBall, 30)
-    ballCurrentPosition = [270,30]
-    currentPosition = [230, 10]
-    xDirection = 2
-    yDirection = 2
-    score = 0
-    scoreDisplay.innerHTML = score
-    drawUser()
     document.addEventListener('keydown', moveUser)
-    reset = true
+    }
+    
 }
 
 startGame.addEventListener('click', startPlayingGame)
